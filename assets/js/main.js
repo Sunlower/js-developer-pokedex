@@ -7,19 +7,19 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
+    <li id="${pokemon.number}" class="pokemon ${pokemon.type}">
+    <span class="number">#${pokemon.number}</span>
+    <span class="name">${pokemon.name}</span>
+    <div class="detail">
+        <ol class="types"> 
+            ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+        </ol>
 
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
+        
+        <img src="${pokemon.photo}" alt="${pokemon.name}">
 
-                <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
-            </div>
-        </li>
+        </div>
+    </li>
     `
 }
 
@@ -44,4 +44,16 @@ loadMoreButton.addEventListener('click', () => {
     } else {
         loadPokemonItens(offset, limit)
     }
+})
+
+pokemonList.addEventListener('click', (pokemon) => {
+    // Verifique se o elemento clicado é um <li>
+  if (pokemon.target.tagName === 'LI') {
+    // Obtenha o ID do Pokémon a partir do atributo data
+    const pokemonId = pokemon.target.getAttribute('id');
+
+    console.log(`${pokemonId}`)
+    localStorage.setItem('Pokemon', JSON.stringify(pokemon))
+    window.location.href = "pagina_detalhe.html";
+  }
 })

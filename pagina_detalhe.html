@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <title>PokeDetail</title>
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -24,25 +24,29 @@
 
 <body>
     <section class="content">
-        <h1>Pokedex</h1>
+        <h1>Detalhe do Pokemon</h1>
 
-        <ol id="pokemonList" class="pokemons">
-            <!-- ..... Pokemons here ..... -->
-            
-            
-        </ol>
+        <span class="numberDetail">PokeDetailNumber</span>
+                <span class="nameDetail">PokeDetailNome</span>
+                <div class="detail">
+                    <ol class="typesDetail"> 
+                        
+                    </ol>
+                   
+                </div>
+        
+                <div class="pagination">
+                    <button id="Objeto" type="button">
+                        Load More
+                    </button>
+                </div>
 
-        <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
-        </div>
     </section>
-
+    
+    
     <!-- Nosso JS -->
-    <script src="/assets/js/pokemon-model.js"></script>
-    <script src="/assets/js/poke-api.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/poke-detail.js"></script>
+    
 </body>
 
 </html>
